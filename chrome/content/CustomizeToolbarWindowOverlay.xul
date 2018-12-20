@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://usebccinstead/skin/usebccinstead.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/content/bindings.css" type="text/css"?>
+
+<overlay id="UseBccInsteadCustomizeToobarWindwoOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/namespace.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/UseBccInsteadUtil.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/CustomizeToolBarWindowOverlay.js"/>
+</overlay>

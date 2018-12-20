@@ -1,0 +1,17 @@
+<!ENTITY prefwindow.title "Use Bcc Instead Einstellungen">
+<!ENTITY prefpane.label "Erweiterungseinstellungen">
+<!ENTITY showHelp.label "Zeige Erweiterungsdokumentation">
+<!ENTITY count.label "Maximal zulässige An und CC Empfänger:">
+<!ENTITY forceBcc.label "Ersetze An und CC Empfänger immer mit BCC:">
+<!ENTITY force.label "Verbiete Nachricht zu senden, wenn der obere Wert überschritten wird:">
+<!ENTITY enableChangeAllRecipients.label "Aktiviere Änderung für alle Empfänger">
+<!ENTITY help.label "Hilfe">
+<!ENTITY website.label "Hier klicken um die Erweiterungwebseite anzuzeigen">
+<!ENTITY restart.label "* = Neustart erforderlich, um wirksam zu werden">
+<!ENTITY defaultNewMsgMode.label "Starte neue und weiterzuleitende Nachrichten mit:">
+<!ENTITY sendingEmail.label "Wenn Nachricht gesendet wird">
+<!ENTITY composingEmail.label "Wenn Nachricht verfasst wird">
+<!ENTITY play.label "Spiele Warnton">
+<!ENTITY addUndisclosedRecipients.label "Verwenden unbekannten Empfängern">
+<!ENTITY addUndisclosedRecipients.tooltip "Klicken Sie hier für weitere Informationen zu diesem Thunderbird Präferenz">
+<!ENTITY otherOptions.label "Andere">

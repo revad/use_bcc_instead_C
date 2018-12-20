@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay id="UseBccInsteadMessageSendOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/namespace.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/UseBccInstead.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/UseBccInsteadUtil.js"/>
+</overlay>

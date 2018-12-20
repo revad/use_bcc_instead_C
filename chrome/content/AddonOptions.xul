@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/preferences/preferences.css"?>
+<?xml-stylesheet href="chrome://messenger/content/bindings.css" type="text/css"?>
+
+<!DOCTYPE prefWindowOverlay [
+  <!ENTITY % commonDTD SYSTEM "chrome://usebccinstead/locale/common.dtd">
+  %commonDTD;
+  <!ENTITY % prefWindowDTD SYSTEM "chrome://usebccinstead/locale/addonOptions.dtd">
+  %prefWindowDTD;
+]>
+
+<prefwindow id="UseBccInstead.PrefsWindow"
+     title="&prefwindow.title;"
+     buttons="cancel,extra2"
+     ondialogcancel="return UseBccInstead.UseBccInsteadPrefs.validateCount()"
+     ondialogextra2="UseBccInstead.UseBccInsteadPrefs.showHelpWindow()"
+     buttonlabelextra2="&showHelp.label;"
+     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/namespace.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/UseBccInsteadUtil.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinstead/content/AddonOptions.js"/>
+
+  <prefpane id="settings_pane" label="&prefpane.label;" onpaneload="UseBccInstead.UseBccInsteadPrefs.toggle(true)">
+    <preferences>
+      <preference id="forceBcc" name="extensions.usebccinstead.forceBcc" instantApply="true" type="bool"/>
+      <!-- preference id="maxCount" name="extensions.usebccinstead.nonBccCount" type="int"/ -->
+      <!-- preference id="defaultNewMsgMode" name="extensions.usebccinstead.defaultNewMsgMode" type="int"/ -->
+      <preference id="play" name="extensions.usebccinstead.playSound" instantApply="true" type="bool"/>
+      <preference id="force" name="extensions.usebccinstead.forceNoSend" instantApply="true" type="bool"/>
+      <preference id="enableChangeAll" name="extensions.usebccinstead.enableChangeAll" instantApply="true" type="bool"/>
+      <preference id="enableAddUndisclosedRecipients" name="mail.compose.add_undisclosed_recipients" instantApply="true" type="bool"/>
+    </preferences>
+
+    <vbox>
+      <groupbox id="sendingOptions">
+        <caption label="&sendingEmail.label;"/>
+        <hbox align="center">
+          <label control="forceBccCheckbox" value="&forceBcc.label;"/>
+          <checkbox id="forceBccCheckbox" preference="forceBcc" oncommand="UseBccInstead.UseBccInsteadPrefs.toggle(false)"/>
+        </hbox>
+        <groupbox>
+          <hbox align="center">
+            <label id="maxCountLabel" control="maxCount" value="&count.label;"/>
+            <textbox id="maxCount" size="2" maxlength="2" onchange="UseBccInstead.UseBccInsteadPrefs.validateCount()"/>
+          </hbox>
+
+          <hbox align="center">
+            <label control="force" value="&force.label;"/>
+            <checkbox id="force" preference="force"/>
+          </hbox>
+
+          <hbox align="center">
+            <label control="play" value="&play.label;"/>
+            <checkbox id="play" preference="play"/>
+          </hbox>
+        </groupbox>
+      </groupbox>
+
+      <groupbox id="composeOptions">
+        <caption label="&composingEmail.label;"/>
+        <hbox align="center">
+          <label control="defaultNewMsgMode" value="&defaultNewMsgMode.label;"/>
+          <menulist editable="false" id="defaultNewMsgMode" oncommand="UseBccInstead.UseBccInsteadPrefs.updateNewMsgMode()">
+            <menupopup>
+              <menuitem label=" - " value="-1"/>
+              <menuitem label="&TO.label;" value="0"/>
+              <menuitem label="&CC.label;" value="1"/>
+              <menuitem label="&BCC.label;" value="2"/>
+            </menupopup>
+          </menulist>
+        </hbox>
+
+        <hbox align="center">
+          <label control="enableChangeAllRecipients" value="&enableChangeAllRecipients.label;"/>
+          <checkbox id="enableChangeAllRecipients" preference="enableChangeAll"/>
+        </hbox>
+      </groupbox>
+
+      <groupbox id="otherOptions">
+        <caption label="&otherOptions.label;"/>
+        <hbox align="center">
+          <label control="addUndisclosedRecipients" value="&addUndisclosedRecipients.label;"/>
+          <checkbox id="addUndisclosedRecipients" preference="enableAddUndisclosedRecipients"/>
+        </hbox>
+      </groupbox>
+
+  <!-- Asterisk applied to enableChangeAll pref;
+       Removed - does not require restart in TB 64
+      <vbox align="center">
+        <label value="&restart.label;"/> -->
+  <!-- this addon has no website at this time. maybe later...
+        <label value="&website.label;" onclick="UseBccInstead.UseBccInsteadPrefs.showWebsite()" style="color: #0000FF; text-decoration: underline; cursor: pointer;"/
+      </vbox> -->
+    </vbox>
+  </prefpane>
+</prefwindow>
