@@ -6,7 +6,7 @@ https://addons.thunderbird.net/en-US/thunderbird/addon/use-bcc-instead/
 updated with the necessary changes up in
 https://wiki.mozilla.org/Thunderbird/Add-ons_Guide_63
 
-It works with TB 64, 65
+It works with TB 64+
 (use_bcc_instead_A worked with TB 60.
  use_bcc_instead_B worked with TB 63.)
  
@@ -17,8 +17,11 @@ ADDON ID
 
 The original author tells me he does not intend to update his original version of this addon.
 I have therefore changed the addon ID. One effect is that it no longer picks up the description
-of the addon, and its use, from AMO; refer to the original version if still available. 
+of the addon, and its use, from addons.thunderbird.net; Refer to the original version if still available.
 
+Instructions for use are displayed in:
+  Tools > Add-on Preferences > Use BCC Instead > Show Addon Documentation
+ 
 INSTALLATION
 ------------
 
