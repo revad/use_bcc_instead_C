@@ -35,7 +35,7 @@
 
     <vbox>
       <groupbox id="sendingOptions">
-        <caption label="&sendingEmail.label;"/>
+        <caption>&sendingEmail.label;</caption>
         <hbox align="center">
           <label control="forceBccCheckbox" value="&forceBcc.label;"/>
           <checkbox id="forceBccCheckbox" preference="forceBcc" oncommand="UseBccInstead.UseBccInsteadPrefs.toggle(false)"/>
@@ -59,7 +59,7 @@
       </groupbox>
 
       <groupbox id="composeOptions">
-        <caption label="&composingEmail.label;"/>
+        <caption>&composingEmail.label;</caption>
         <hbox align="center">
           <label control="defaultNewMsgMode" value="&defaultNewMsgMode.label;"/>
           <menulist editable="false" id="defaultNewMsgMode" oncommand="UseBccInstead.UseBccInsteadPrefs.updateNewMsgMode()">
@@ -79,7 +79,7 @@
       </groupbox>
 
       <groupbox id="otherOptions">
-        <caption label="&otherOptions.label;"/>
+        <caption>&otherOptions.label;</caption>
         <hbox align="center">
           <label control="addUndisclosedRecipients" value="&addUndisclosedRecipients.label;"/>
           <checkbox id="addUndisclosedRecipients" preference="enableAddUndisclosedRecipients"/>
