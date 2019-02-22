@@ -1,4 +1,4 @@
-UseBccInstead.UseBccInsteadPrefs =
+UseBccInsteadC.UseBccInsteadCPrefs =
 {
   inEditCount: false,
 
@@ -15,30 +15,30 @@ UseBccInstead.UseBccInsteadPrefs =
   onLoad: function()
   {
     // remove to avoid duplicate initialization
-    removeEventListener("load", UseBccInstead.UseBccInsteadPrefs.onLoad, true);
+    removeEventListener("load", UseBccInsteadC.UseBccInsteadCPrefs.onLoad, true);
 
     var widget = document.getElementById("maxCount");
-    widget.value = UseBccInstead.UseBccInsteadUtil.getIntPref("extensions.usebccinstead.nonBccCount", 10);
+    widget.value = UseBccInsteadC.UseBccInsteadCUtil.getIntPref("extensions.usebccinsteadC.nonBccCount", 10);
 
     widget = document.getElementById("defaultNewMsgMode");
-    widget.selectedIndex = UseBccInstead.UseBccInsteadUtil.getIntPref("extensions.usebccinstead.defaultNewMsgMode", -1) + 1;
+    widget.selectedIndex = UseBccInsteadC.UseBccInsteadCUtil.getIntPref("extensions.usebccinsteadC.defaultNewMsgMode", -1) + 1;
 
     widget = document.getElementById("forceBccCheckbox");
     widget.focus();
 
-    var thisDialog = document.getElementById("UseBccInstead.PrefsWindow");
+    var thisDialog = document.getElementById("UseBccInsteadC.PrefsWindow");
     widget = thisDialog.getButton("cancel");
-    widget.label = UseBccInstead.UseBccInsteadUtil.getLocalizedString("closeButton.label");
+    widget.label = UseBccInsteadC.UseBccInsteadCUtil.getLocalizedString("closeButton.label");
   },
 
   validateCount: function()
   {
-    if(UseBccInstead.UseBccInsteadPrefs.inEditCount)
+    if(UseBccInsteadC.UseBccInsteadCPrefs.inEditCount)
     {
       return false;
     }
 
-    UseBccInstead.UseBccInsteadPrefs.inEditCount = true;
+    UseBccInsteadC.UseBccInsteadCPrefs.inEditCount = true;
     var widget = document.getElementById("maxCount");
     var s = widget.value;
     var re = /^\d+$/;
@@ -47,24 +47,24 @@ UseBccInstead.UseBccInsteadPrefs =
 
     if((null == s.match(re)) || (isNaN(count)) || (count < 0))
     {
-      alert(UseBccInstead.UseBccInsteadUtil.getLocalizedString("options.countError"));
+      alert(UseBccInsteadC.UseBccInsteadCUtil.getLocalizedString("options.countError"));
       widget.focus();
       result = false;
     }
     else
     {
-      UseBccInstead.UseBccInsteadUtil.setIntPref("extensions.usebccinstead.nonBccCount", count);
+      UseBccInsteadC.UseBccInsteadCUtil.setIntPref("extensions.usebccinsteadC.nonBccCount", count);
       result = true;
     }
 
-    UseBccInstead.UseBccInsteadPrefs.inEditCount = false;
+    UseBccInsteadC.UseBccInsteadCPrefs.inEditCount = false;
     return result;
   },
 
   updateNewMsgMode: function()
   {
     var widget = document.getElementById("defaultNewMsgMode");
-    UseBccInstead.UseBccInsteadUtil.setIntPref("extensions.usebccinstead.defaultNewMsgMode", widget.selectedItem.value);
+    UseBccInsteadC.UseBccInsteadCUtil.setIntPref("extensions.usebccinsteadC.defaultNewMsgMode", widget.selectedItem.value);
   },
 
   toggle: function(onInit)
@@ -95,7 +95,7 @@ UseBccInstead.UseBccInsteadPrefs =
   showWebsite: function()
   {
     var uri = Components.classes["@mozilla.org/network/standard-url;1"].createInstance(Components.interfaces.nsIURI);
-    uri.spec = "http://usebccinstead.mozdev.org";
+    uri.spec = "http://usebccinsteadC.mozdev.org";
     var protocolSvc = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"].getService(Components.interfaces.nsIExternalProtocolService);
     protocolSvc.loadUrl(uri);
     protocolSvc = null;
@@ -104,8 +104,8 @@ UseBccInstead.UseBccInsteadPrefs =
 
   showHelpWindow: function()
   {
-    window.open("chrome://usebccinstead/content/Help.xul", "", "chrome,width=600,height=300,resizable,centerscreen");
+    window.open("chrome://usebccinsteadC/content/Help.xul", "", "chrome,width=600,height=300,resizable,centerscreen");
   }
 }
 
-window.addEventListener("load", UseBccInstead.UseBccInsteadPrefs.onLoad, true);
+window.addEventListener("load", UseBccInsteadC.UseBccInsteadCPrefs.onLoad, true);

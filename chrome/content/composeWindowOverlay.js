@@ -1,4 +1,4 @@
-UseBccInsteadStateListener.prototype =
+UseBccInsteadCStateListener.prototype =
 {
   prompts: Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService),
 
@@ -6,7 +6,7 @@ UseBccInsteadStateListener.prototype =
   {
     // we use this to work-around the fact that TB caches compose windows
     // and so the onLoad event does not always get executed. jeeze!
-    UseBccInstead.ComposeWindowOverlay.readyToolbarButton();
+    UseBccInsteadC.ComposeWindowOverlay.readyToolbarButton();
   },
 
   NotifyComposeBodyReady: function()
@@ -24,9 +24,9 @@ UseBccInsteadStateListener.prototype =
       ((gMsgCompose.type == Components.interfaces.nsIMsgCompType.Template) && ((origMsgHdr.folder.flags & 4194304) == 0) && (("" != gMsgCompose.compFields.to) || ("" != gMsgCompose.compFields.cc))))
     {
       var acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Components.interfaces.nsIMsgAccountManager);
-      for(var i = 0; i < UseBccInstead.UseBccInsteadUtil.getArrayCount(acctMgr.accounts); i++)
+      for(var i = 0; i < UseBccInsteadC.UseBccInsteadCUtil.getArrayCount(acctMgr.accounts); i++)
       {
-        var account = UseBccInstead.UseBccInsteadUtil.getArrayElement(acctMgr.accounts, i, Components.interfaces.nsIMsgAccount);
+        var account = UseBccInsteadC.UseBccInsteadCUtil.getArrayElement(acctMgr.accounts, i, Components.interfaces.nsIMsgAccount);
         if(account.key ==  origMsgHdr.accountKey)
         {
           // if the following test is true, then we were BCC'ed since the original receiving email is
@@ -34,10 +34,10 @@ UseBccInsteadStateListener.prototype =
           if(origMsgHdr.recipients.indexOf(account.defaultIdentity.email) == -1 &&
              origMsgHdr.ccList.indexOf(account.defaultIdentity.email) == -1)
           {
-            var title = "UseBccInstead - ";
+            var title = "UseBccInsteadC - ";
             var message = null;
-            title += UseBccInstead.UseBccInsteadUtil.getLocalizedString("confirm.UseCautionTitle");
-            message = UseBccInstead.UseBccInsteadUtil.getLocalizedString("confirm.UseCautionMessage");
+            title += UseBccInsteadC.UseBccInsteadCUtil.getLocalizedString("confirm.UseCautionTitle");
+            message = UseBccInsteadC.UseBccInsteadCUtil.getLocalizedString("confirm.UseCautionMessage");
             this.prompts.alert(window, title, message);
           }
 
@@ -46,12 +46,12 @@ UseBccInsteadStateListener.prototype =
       }
     }
 
-    if(UseBccInstead.ComposeWindowOverlay.isNewMessage())
+    if(UseBccInsteadC.ComposeWindowOverlay.isNewMessage())
     {
-      var whatToDo = UseBccInstead.UseBccInsteadUtil.getIntPref("extensions.usebccinstead.defaultNewMsgMode", -1);
+      var whatToDo = UseBccInsteadC.UseBccInsteadCUtil.getIntPref("extensions.usebccinsteadC.defaultNewMsgMode", -1);
       if(-1 != whatToDo)
       {
-        UseBccInstead.ComposeWindowOverlay.changeAllRecipientsTo(whatToDo);
+        UseBccInsteadC.ComposeWindowOverlay.changeAllRecipientsTo(whatToDo);
       }
     }
 
@@ -64,7 +64,7 @@ UseBccInsteadStateListener.prototype =
   //  if((aWindow.document.documentURI == "chrome://messenger/content/messenger.xul") ||
   //    (aWindow.document.documentURI == "chrome://messenger/content/messageWindow.xul"))
   //  {
-  //    var label = aWindow.document.getElementById("UseBccInsteadWhatToDo");
+  //    var label = aWindow.document.getElementById("UseBccInsteadCWhatToDo");
   //
   //    if(!label)
   //    {
@@ -73,10 +73,10 @@ UseBccInsteadStateListener.prototype =
   //
   //    var whatToDo = parseInt(label.value);
   //
-  //    if(whatToDo != UseBccInstead.UseBccInsteadUtil.NOTHING)
+  //    if(whatToDo != UseBccInsteadC.UseBccInsteadCUtil.NOTHING)
   //    {
-  //      UseBccInstead.ComposeWindowOverlay.changeAllRecipientsTo(whatToDo);
-  //      label.value = UseBccInstead.UseBccInsteadUtil.NOTHING;
+  //      UseBccInsteadC.ComposeWindowOverlay.changeAllRecipientsTo(whatToDo);
+  //      label.value = UseBccInsteadC.UseBccInsteadCUtil.NOTHING;
   //      return;
   //    }
   //  }
@@ -92,16 +92,16 @@ UseBccInsteadStateListener.prototype =
   }
 }
 
-UseBccInstead.ComposeWindowOverlay =
+UseBccInsteadC.ComposeWindowOverlay =
 {
   missingToolbarButton: false,
   originalFunction: null,
 
   init: function()
   {
-    if(!UseBccInstead.ComposeWindowOverlay.originalFunction)
+    if(!UseBccInsteadC.ComposeWindowOverlay.originalFunction)
     {
-      UseBccInstead.ComposeWindowOverlay.originalFunction = awAddRecipient;
+      UseBccInsteadC.ComposeWindowOverlay.originalFunction = awAddRecipient;
     }
   },
 
@@ -111,13 +111,13 @@ UseBccInstead.ComposeWindowOverlay =
     {
       // if our button is missing in its toolbox, note that this was the case
       // at the beginning of the customization
-      if(null == document.getElementById("UseBccInsteadComposeToolbarButton"))
+      if(null == document.getElementById("UseBccInsteadCComposeToolbarButton"))
       {
-        UseBccInstead.ComposeWindowOverlay.missingToolbarButton = true;
+        UseBccInsteadC.ComposeWindowOverlay.missingToolbarButton = true;
       }
       else
       {
-        UseBccInstead.ComposeWindowOverlay.missingToolbarButton = false;
+        UseBccInsteadC.ComposeWindowOverlay.missingToolbarButton = false;
       }
     }
   },
@@ -126,12 +126,12 @@ UseBccInstead.ComposeWindowOverlay =
   {
     if(event.target == document.getElementById("compose-toolbox"))
     {
-      if(null != document.getElementById("UseBccInsteadComposeToolbarButton"))
+      if(null != document.getElementById("UseBccInsteadCComposeToolbarButton"))
       {
-        if(UseBccInstead.ComposeWindowOverlay.missingToolbarButton == true)
+        if(UseBccInsteadC.ComposeWindowOverlay.missingToolbarButton == true)
         {
-          UseBccInstead.ComposeWindowOverlay.readyToolbarButton();
-          UseBccInstead.ComposeWindowOverlay.missingToolbarButton = false;
+          UseBccInsteadC.ComposeWindowOverlay.readyToolbarButton();
+          UseBccInsteadC.ComposeWindowOverlay.missingToolbarButton = false;
         }
       }
     }
@@ -140,25 +140,25 @@ UseBccInstead.ComposeWindowOverlay =
   onLoad: function()
   {
     // remove to avoid duplicate initialization
-    removeEventListener("load", UseBccInstead.ComposeWindowOverlay.onLoad, true);
+    removeEventListener("load", UseBccInsteadC.ComposeWindowOverlay.onLoad, true);
 
   //var widget = document.getElementById("taskPopup");
     var widget = document.getElementById("optionsMenuPopup");
-    widget.addEventListener("popupshowing", UseBccInstead.ComposeWindowOverlay.onMenuPopup, false);
+    widget.addEventListener("popupshowing", UseBccInsteadC.ComposeWindowOverlay.onMenuPopup, false);
 
     widget = document.getElementById("msgComposeContext");
-    widget.addEventListener("popupshowing", UseBccInstead.ComposeWindowOverlay.onContextMenuPopup, false);
+    widget.addEventListener("popupshowing", UseBccInsteadC.ComposeWindowOverlay.onContextMenuPopup, false);
 
-  //widget = document.getElementById("UseBccInsteadComposeToolbarButtonMenu");
-  //widget.addEventListener("popupshowing", UseBccInstead.ComposeWindowOverlay.onToolbarButtonMenuPopup, false);
+  //widget = document.getElementById("UseBccInsteadCComposeToolbarButtonMenu");
+  //widget.addEventListener("popupshowing", UseBccInsteadC.ComposeWindowOverlay.onToolbarButtonMenuPopup, false);
 
     // only works on TB 3.3 + so on earlier versions we have an ugly hack.
-    // see UseBccInsteadOnCustomizeClose() below and how it is called from
+    // see UseBccInsteadCOnCustomizeClose() below and how it is called from
     // CustomizeToolbarWindowOverlay
-    if(UseBccInstead.UseBccInsteadUtil.isTB3_3())
+    if(UseBccInsteadC.UseBccInsteadCUtil.isTB3_3())
     {
-      window.addEventListener("beforecustomization", UseBccInstead.ComposeWindowOverlay.onToolboxCustomizeStart, false);
-      window.addEventListener("aftercustomization", UseBccInstead.ComposeWindowOverlay.onToolboxCustomizeEnd, false);
+      window.addEventListener("beforecustomization", UseBccInsteadC.ComposeWindowOverlay.onToolboxCustomizeStart, false);
+      window.addEventListener("aftercustomization", UseBccInsteadC.ComposeWindowOverlay.onToolboxCustomizeEnd, false);
     }
   },
 
@@ -166,7 +166,7 @@ UseBccInstead.ComposeWindowOverlay =
   {
     // we define an unaddressed message as one having only a single, blank recipient but
     // we ignore reply-to recipients
-    var numRecipients = UseBccInstead.ComposeWindowOverlay.getNumRecipients();
+    var numRecipients = UseBccInsteadC.ComposeWindowOverlay.getNumRecipients();
     var numRealRecipients = 0;
     for(var i = 0; i < numRecipients; i++)
     {
@@ -187,7 +187,7 @@ UseBccInstead.ComposeWindowOverlay =
           {
             elementId = "addressCol2#" + (i+1);
             var recipientAddr = document.getElementById(elementId);
-            if("" != UseBccInstead.UseBccInsteadUtil.trim(recipientAddr.value))
+            if("" != UseBccInsteadC.UseBccInsteadCUtil.trim(recipientAddr.value))
             {
               return false;
             }
@@ -234,7 +234,7 @@ UseBccInstead.ComposeWindowOverlay =
       case Components.interfaces.nsIMsgCompType.Draft:
       case Components.interfaces.nsIMsgCompType.Template:
       {
-        if(UseBccInstead.ComposeWindowOverlay.isUnaddressed())
+        if(UseBccInsteadC.ComposeWindowOverlay.isUnaddressed())
         {
           return true;
         }
@@ -251,22 +251,22 @@ UseBccInstead.ComposeWindowOverlay =
 
   onToolbarButtonMenuPopup: function(event)
   {
-    var enabled = UseBccInstead.UseBccInsteadUtil.getBoolPref("extensions.usebccinstead.enableChangeAll", true);
-    var menu = document.getElementById("UseBccInsteadComposeToolbarButtonMenu");
+    var enabled = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("extensions.usebccinsteadC.enableChangeAll", true);
+    var menu = document.getElementById("UseBccInsteadCComposeToolbarButtonMenu");
     menu.setAttribute("hidden", !enabled);
   },
 
   onMenuPopup: function()
   {
-    var enabled = UseBccInstead.UseBccInsteadUtil.getBoolPref("extensions.usebccinstead.enableChangeAll", true);
-    var menu = document.getElementById("UseBccInsteadReaddressMenu");
+    var enabled = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("extensions.usebccinsteadC.enableChangeAll", true);
+    var menu = document.getElementById("UseBccInsteadCReaddressMenu");
     menu.setAttribute("hidden", !enabled);
   },
 
   onContextMenuPopup: function()
   {
-    var enabled = UseBccInstead.UseBccInsteadUtil.getBoolPref("extensions.usebccinstead.enableChangeAll", true);
-    var menu = document.getElementById("UseBccInsteadReaddressContextMenu");
+    var enabled = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("extensions.usebccinsteadC.enableChangeAll", true);
+    var menu = document.getElementById("UseBccInsteadCReaddressContextMenu");
     menu.setAttribute("hidden", !enabled);
   },
 
@@ -278,12 +278,12 @@ UseBccInstead.ComposeWindowOverlay =
 
   readyToolbarButton: function()
   {
-    var widget = document.getElementById("UseBccInsteadComposeToolbarButton");
+    var widget = document.getElementById("UseBccInsteadCComposeToolbarButton");
 
     // the button may not be shown on the window
     if(widget)
     {
-      var enabled = UseBccInstead.UseBccInsteadUtil.getBoolPref("extensions.usebccinstead.enableChangeAll", true);
+      var enabled = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("extensions.usebccinsteadC.enableChangeAll", true);
 
       if(!enabled)
       {
@@ -298,7 +298,7 @@ UseBccInstead.ComposeWindowOverlay =
 
   changeAllRecipientsTo: function(toWhat)
   {
-    var recipientCount = UseBccInstead.ComposeWindowOverlay.getNumRecipients();
+    var recipientCount = UseBccInsteadC.ComposeWindowOverlay.getNumRecipients();
 
     for(var i = 0; i < recipientCount; i++)
     {
@@ -321,19 +321,19 @@ UseBccInstead.ComposeWindowOverlay =
           {
             switch(toWhat)
             {
-              case UseBccInstead.UseBccInsteadUtil.TO:
+              case UseBccInsteadC.UseBccInsteadCUtil.TO:
               {
                 recipientType.value = "addr_to";
                 break;
               }
 
-              case UseBccInstead.UseBccInsteadUtil.CC:
+              case UseBccInsteadC.UseBccInsteadCUtil.CC:
               {
                 recipientType.value = "addr_cc";
                 break;
               }
 
-              case UseBccInstead.UseBccInsteadUtil.BCC:
+              case UseBccInsteadC.UseBccInsteadCUtil.BCC:
               {
                 recipientType.value = "addr_bcc";
                 break;
@@ -347,20 +347,20 @@ UseBccInstead.ComposeWindowOverlay =
 }
 
 
-function UseBccInsteadStateListener()
+function UseBccInsteadCStateListener()
 {
 }
 
-function UseBccInsteadOnCustomizeClose()
+function UseBccInsteadCOnCustomizeClose()
 {
   // on TB 3.3 +, we are using events so this is not needed
-  if(!UseBccInstead.UseBccInsteadUtil.isTB3_3())
+  if(!UseBccInsteadC.UseBccInsteadCUtil.isTB3_3())
   {
-    UseBccInstead.ComposeWindowOverlay.readyToolbarButton();
+    UseBccInsteadC.ComposeWindowOverlay.readyToolbarButton();
   }
 }
 
-UseBccInstead.ComposeWindowOverlay.init();
+UseBccInsteadC.ComposeWindowOverlay.init();
 
 awAddRecipient = function(recipientType, address)
 {
@@ -369,11 +369,11 @@ awAddRecipient = function(recipientType, address)
   // reply-to configured
   if(recipientType == "addr_reply")
   {
-    UseBccInstead.ComposeWindowOverlay.originalFunction(recipientType, address);
+    UseBccInsteadC.ComposeWindowOverlay.originalFunction(recipientType, address);
     return;
   }
 
-  var onDoubleClickHandler = (UseBccInstead.UseBccInsteadUtil.isTB2()) ? "contactsListDoubleClick" : "contactsListOnClick";
+  var onDoubleClickHandler = (UseBccInsteadC.UseBccInsteadCUtil.isTB2()) ? "contactsListDoubleClick" : "contactsListOnClick";
   var whoCalled = awAddRecipient.caller;
 
   // check up the call stack to see if we were invoked via a double-click
@@ -404,18 +404,18 @@ awAddRecipient = function(recipientType, address)
     whoCalled = whoCalled.caller;
   }
 
-  var whatToDo = UseBccInstead.UseBccInsteadUtil.getIntPref("extensions.usebccinstead.defaultNewMsgMode", 0);
+  var whatToDo = UseBccInsteadC.UseBccInsteadCUtil.getIntPref("extensions.usebccinsteadC.defaultNewMsgMode", 0);
   var newRecipientType = recipientType;
 
   switch(whatToDo)
   {
-    case UseBccInstead.UseBccInsteadUtil.CC:
+    case UseBccInsteadC.UseBccInsteadCUtil.CC:
     {
       newRecipientType = "addr_cc";
       break;
     }
 
-    case UseBccInstead.UseBccInsteadUtil.BCC:
+    case UseBccInsteadC.UseBccInsteadCUtil.BCC:
     {
       newRecipientType = "addr_bcc";
       break;
@@ -432,7 +432,7 @@ awAddRecipient = function(recipientType, address)
   if(whoCalled)
   {
     // so employ what the user has set in the options
-    UseBccInstead.ComposeWindowOverlay.originalFunction(newRecipientType, address);
+    UseBccInsteadC.ComposeWindowOverlay.originalFunction(newRecipientType, address);
 
     // this is what replaces the hard-coded To: on the newly added, empty entry
     awSetInputAndPopupValue(awGetInputElement(top.MAX_RECIPIENTS), "", awGetPopupElement(top.MAX_RECIPIENTS), newRecipientType, top.MAX_RECIPIENTS);
@@ -440,16 +440,16 @@ awAddRecipient = function(recipientType, address)
   else
   {
     // use what is sent to us by the button/menu that invoked us
-    UseBccInstead.ComposeWindowOverlay.originalFunction(recipientType, address);
+    UseBccInsteadC.ComposeWindowOverlay.originalFunction(recipientType, address);
 
     // this is what replaces the hard-coded To: on the newly added, empty entry
     awSetInputAndPopupValue(awGetInputElement(top.MAX_RECIPIENTS), "", awGetPopupElement(top.MAX_RECIPIENTS), recipientType, top.MAX_RECIPIENTS);
   }
 }
 
-window.addEventListener("load", UseBccInstead.ComposeWindowOverlay.onLoad, true);
+window.addEventListener("load", UseBccInsteadC.ComposeWindowOverlay.onLoad, true);
 window.addEventListener("compose-window-init", function (event)
 {
-  gMsgCompose.RegisterStateListener(new UseBccInsteadStateListener());
+  gMsgCompose.RegisterStateListener(new UseBccInsteadCStateListener());
 },
 true);

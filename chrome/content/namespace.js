@@ -1,4 +1,4 @@
-if ("undefined" == typeof(UseBccInstead))
+if ("undefined" == typeof(UseBccInsteadC))
 {
-  var UseBccInstead = {};
+  var UseBccInsteadC = {};
 };

@@ -1,17 +1,17 @@
-UseBccInstead.extendedRecipientsColumnHandler =
+UseBccInsteadC.extendedRecipientsColumnHandler =
 {
   getCellText: function(row, col)
   {
     // get the message's header so that we can extract the TO, CC, and BCC fields
     var hdr = gDBView.getMsgHdrAt(row);
 
-    //UseBccInstead.extendedReipientsColumn.enumProperties(hdr);
-    return UseBccInstead.extendedReipientsColumn.buildCellResultString(hdr);
+    //UseBccInsteadC.extendedReipientsColumn.enumProperties(hdr);
+    return UseBccInsteadC.extendedReipientsColumn.buildCellResultString(hdr);
   },
 
   getSortStringForRow: function(hdr)
   {
-    return UseBccInstead.extendedReipientsColumn.buildCellResultString(hdr);
+    return UseBccInsteadC.extendedReipientsColumn.buildCellResultString(hdr);
   },
 
   isString: function()

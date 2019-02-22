@@ -4,32 +4,32 @@
 <?xml-stylesheet href="chrome://messenger/content/bindings.css" type="text/css"?>
 
 <!DOCTYPE prefWindowOverlay [
-  <!ENTITY % commonDTD SYSTEM "chrome://usebccinstead/locale/common.dtd">
+  <!ENTITY % commonDTD SYSTEM "chrome://usebccinsteadC/locale/common.dtd">
   %commonDTD;
-  <!ENTITY % prefWindowDTD SYSTEM "chrome://usebccinstead/locale/addonOptions.dtd">
+  <!ENTITY % prefWindowDTD SYSTEM "chrome://usebccinsteadC/locale/addonOptions.dtd">
   %prefWindowDTD;
 ]>
 
-<prefwindow id="UseBccInstead.PrefsWindow"
+<prefwindow id="UseBccInsteadC.PrefsWindow"
      title="&prefwindow.title;"
      buttons="cancel,extra2"
-     ondialogcancel="return UseBccInstead.UseBccInsteadPrefs.validateCount()"
-     ondialogextra2="UseBccInstead.UseBccInsteadPrefs.showHelpWindow()"
+     ondialogcancel="return UseBccInsteadC.UseBccInsteadCPrefs.validateCount()"
+     ondialogextra2="UseBccInsteadC.UseBccInsteadCPrefs.showHelpWindow()"
      buttonlabelextra2="&showHelp.label;"
      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-  <script type="application/x-javascript" src="chrome://usebccinstead/content/namespace.js"/>
-  <script type="application/x-javascript" src="chrome://usebccinstead/content/UseBccInsteadUtil.js"/>
-  <script type="application/x-javascript" src="chrome://usebccinstead/content/AddonOptions.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinsteadC/content/namespace.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinsteadC/content/UseBccInsteadCUtil.js"/>
+  <script type="application/x-javascript" src="chrome://usebccinsteadC/content/AddonOptions.js"/>
 
-  <prefpane id="settings_pane" label="&prefpane.label;" onpaneload="UseBccInstead.UseBccInsteadPrefs.toggle(true)">
+  <prefpane id="settings_pane" label="&prefpane.label;" onpaneload="UseBccInsteadC.UseBccInsteadCPrefs.toggle(true)">
     <preferences>
-      <preference id="forceBcc" name="extensions.usebccinstead.forceBcc" instantApply="true" type="bool"/>
-      <!-- preference id="maxCount" name="extensions.usebccinstead.nonBccCount" type="int"/ -->
-      <!-- preference id="defaultNewMsgMode" name="extensions.usebccinstead.defaultNewMsgMode" type="int"/ -->
-      <preference id="play" name="extensions.usebccinstead.playSound" instantApply="true" type="bool"/>
-      <preference id="force" name="extensions.usebccinstead.forceNoSend" instantApply="true" type="bool"/>
-      <preference id="enableChangeAll" name="extensions.usebccinstead.enableChangeAll" instantApply="true" type="bool"/>
+      <preference id="forceBcc" name="extensions.usebccinsteadC.forceBcc" instantApply="true" type="bool"/>
+      <!-- preference id="maxCount" name="extensions.usebccinsteadC.nonBccCount" type="int"/ -->
+      <!-- preference id="defaultNewMsgMode" name="extensions.usebccinsteadC.defaultNewMsgMode" type="int"/ -->
+      <preference id="play" name="extensions.usebccinsteadC.playSound" instantApply="true" type="bool"/>
+      <preference id="force" name="extensions.usebccinsteadC.forceNoSend" instantApply="true" type="bool"/>
+      <preference id="enableChangeAll" name="extensions.usebccinsteadC.enableChangeAll" instantApply="true" type="bool"/>
       <preference id="enableAddUndisclosedRecipients" name="mail.compose.add_undisclosed_recipients" instantApply="true" type="bool"/>
     </preferences>
 
@@ -38,12 +38,12 @@
         <caption>&sendingEmail.label;</caption>
         <hbox align="center">
           <label control="forceBccCheckbox" value="&forceBcc.label;"/>
-          <checkbox id="forceBccCheckbox" preference="forceBcc" oncommand="UseBccInstead.UseBccInsteadPrefs.toggle(false)"/>
+          <checkbox id="forceBccCheckbox" preference="forceBcc" oncommand="UseBccInsteadC.UseBccInsteadCPrefs.toggle(false)"/>
         </hbox>
         <groupbox>
           <hbox align="center">
             <label id="maxCountLabel" control="maxCount" value="&count.label;"/>
-            <textbox id="maxCount" size="2" maxlength="2" onchange="UseBccInstead.UseBccInsteadPrefs.validateCount()"/>
+            <textbox id="maxCount" size="2" maxlength="2" onchange="UseBccInsteadC.UseBccInsteadCPrefs.validateCount()"/>
           </hbox>
 
           <hbox align="center">
@@ -62,7 +62,7 @@
         <caption>&composingEmail.label;</caption>
         <hbox align="center">
           <label control="defaultNewMsgMode" value="&defaultNewMsgMode.label;"/>
-          <menulist editable="false" id="defaultNewMsgMode" oncommand="UseBccInstead.UseBccInsteadPrefs.updateNewMsgMode()">
+          <menulist editable="false" id="defaultNewMsgMode" oncommand="UseBccInsteadC.UseBccInsteadCPrefs.updateNewMsgMode()">
             <menupopup>
               <menuitem label=" - " value="-1"/>
               <menuitem label="&TO.label;" value="0"/>
@@ -91,7 +91,7 @@
       <vbox align="center">
         <label value="&restart.label;"/> -->
   <!-- this addon has no website at this time. maybe later...
-        <label value="&website.label;" onclick="UseBccInstead.UseBccInsteadPrefs.showWebsite()" style="color: #0000FF; text-decoration: underline; cursor: pointer;"/
+        <label value="&website.label;" onclick="UseBccInsteadC.UseBccInsteadCPrefs.showWebsite()" style="color: #0000FF; text-decoration: underline; cursor: pointer;"/
       </vbox> -->
     </vbox>
   </prefpane>

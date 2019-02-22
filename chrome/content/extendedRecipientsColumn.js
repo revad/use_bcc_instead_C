@@ -1,20 +1,20 @@
 Components.utils.import("resource://gre/modules/Services.jsm");
 
-UseBccInstead.createDbObserver =
+UseBccInsteadC.createDbObserver =
 {
   // Components.interfaces.nsIObserver
   observe: function(aMsgFolder, aTopic, aData)
   {
-    UseBccInstead.createDbObserver.addCustomColumnHandler();
+    UseBccInsteadC.createDbObserver.addCustomColumnHandler();
   },
 
   addCustomColumnHandler: function()
   {
-    gDBView.addColumnHandler("colExtendedRecipients", UseBccInstead.extendedRecipientsColumnHandler);
+    gDBView.addColumnHandler("colExtendedRecipients", UseBccInsteadC.extendedRecipientsColumnHandler);
   }
 }
 
-UseBccInstead.extendedReipientsColumn =
+UseBccInsteadC.extendedReipientsColumn =
 {
   headerParser: Components.classes["@mozilla.org/messenger/headerparser;1"].getService(Components.interfaces.nsIMsgHeaderParser),
 
@@ -30,21 +30,21 @@ UseBccInstead.extendedReipientsColumn =
 
     // if there are TO recipients that are NOT the string TB optionally uses or the author string which TB uses
     // if the optional string is NOT employed, return those
-    if((toRecipients) && (toRecipients != "") && (!toRecipients.match(UseBccInstead.extendedReipientsColumn.undisclosedString)) && (toRecipients != author))
+    if((toRecipients) && (toRecipients != "") && (!toRecipients.match(UseBccInsteadC.extendedReipientsColumn.undisclosedString)) && (toRecipients != author))
     {
-      return UseBccInstead.extendedReipientsColumn.prettyUpResults(toRecipients);
+      return UseBccInsteadC.extendedReipientsColumn.prettyUpResults(toRecipients);
     }
 
     // otherwise, if there are CC recipients, return those
     if((ccRecipients) && (ccRecipients != ""))
     {
-      return UseBccInstead.extendedReipientsColumn.prettyUpResults(ccRecipients);
+      return UseBccInsteadC.extendedReipientsColumn.prettyUpResults(ccRecipients);
     }
 
     // otherwise, if there are BCC recipients, return those
     if((bccRecipients) && (bccRecipients != ""))
     {
-      return UseBccInstead.extendedReipientsColumn.prettyUpResults(bccRecipients);
+      return UseBccInsteadC.extendedReipientsColumn.prettyUpResults(bccRecipients);
     }
 
     // not sure what else to do if we get here, so return a blank string
@@ -60,7 +60,7 @@ UseBccInstead.extendedReipientsColumn =
 
     // the input string should be comma-separated email addresses, some of which will have both names
     // and email addresses. break up the string into its components
-    entryCount = UseBccInstead.extendedReipientsColumn.headerParser.parseHeadersWithArray(emailAddresses, addressesOnly, namesOnly, fullResults);
+    entryCount = UseBccInsteadC.extendedReipientsColumn.headerParser.parseHeadersWithArray(emailAddresses, addressesOnly, namesOnly, fullResults);
 
     var result = "";
 
@@ -111,7 +111,7 @@ UseBccInstead.extendedReipientsColumn =
     // remove to avoid duplicate initialization
     var s = "";
 
-    removeEventListener("load", UseBccInstead.extendedReipientsColumn.onLoad, true);
+    removeEventListener("load", UseBccInsteadC.extendedReipientsColumn.onLoad, true);
 
     // get the string that TB will use if it places the optional TO header for emails with only BCC recipients.
     // note: this will also work if the user has created a custom string as described at http://forums.mozillazine.org/viewtopic.php?p=4882345
@@ -120,7 +120,7 @@ UseBccInstead.extendedReipientsColumn =
 //    var bundle = stringBundleService.createBundle("chrome://messenger/locale/messengercompose/composeMsgs.properties");
     var bundle = Services.strings.createBundle("chrome://messenger/locale/messengercompose/composeMsgs.properties");
 
-    if(UseBccInstead.UseBccInsteadUtil.isTB31())
+    if(UseBccInsteadC.UseBccInsteadCUtil.isTB31())
     {
       s = bundle.GetStringFromName("undisclosedRecipients");
     }
@@ -129,12 +129,12 @@ UseBccInstead.extendedReipientsColumn =
       s = bundle.GetStringFromName("12566");
     }
 
-    UseBccInstead.extendedReipientsColumn.undisclosedString = new RegExp("^" + s + "\: *;$");
+    UseBccInsteadC.extendedReipientsColumn.undisclosedString = new RegExp("^" + s + "\: *;$");
 
     // listen for creation of DB views
     var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-    observerService.addObserver(UseBccInstead.createDbObserver, "MsgCreateDBView", false);
+    observerService.addObserver(UseBccInsteadC.createDbObserver, "MsgCreateDBView", false);
   }
 }
 
-window.addEventListener("load", UseBccInstead.extendedReipientsColumn.onLoad, false);
+window.addEventListener("load", UseBccInsteadC.extendedReipientsColumn.onLoad, false);

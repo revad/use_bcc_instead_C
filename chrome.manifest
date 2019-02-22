@@ -1,18 +1,18 @@
-content usebccinstead chrome/content/
-skin   usebccinstead    classic/1.0  chrome/skin/classic/
-style  chrome://messenger/content/customizeToolbar.xul    chrome://usebccinstead/skin/usebccinstead.css
-locale usebccinstead en-US chrome/locale/en-US/
-locale usebccinstead sv-SE chrome/locale/sv-SE/
-locale usebccinstead nl chrome/locale/nl/
-locale usebccinstead zh-CN chrome/locale/zh-CN/
-locale usebccinstead cs chrome/locale/cs/
-locale usebccinstead pt-BR chrome/locale/pt-BR/
-locale usebccinstead it chrome/locale/it/
-locale usebccinstead sr chrome/locale/sr/
-locale usebccinstead de chrome/locale/de/
-locale usebccinstead fr chrome/locale/fr/
-locale usebccinstead es-ES chrome/locale/es-ES/
-overlay chrome://messenger/content/customizeToolbar.xul chrome://usebccinstead/content/CustomizeToolbarWindowOverlay.xul
-overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://usebccinstead/content/messageSendOverlay.xul
-overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://usebccinstead/content/composeWindowOverlay.xul
-overlay chrome://messenger/content/messenger.xul chrome://usebccinstead/content/extendedRecipientsColumnOverlay3.xul
+content usebccinsteadC chrome/content/
+skin   usebccinsteadC    classic/1.0  chrome/skin/classic/
+style  chrome://messenger/content/customizeToolbar.xul    chrome://usebccinsteadC/skin/usebccinsteadC.css
+locale usebccinsteadC en-US chrome/locale/en-US/
+locale usebccinsteadC sv-SE chrome/locale/sv-SE/
+locale usebccinsteadC nl chrome/locale/nl/
+locale usebccinsteadC zh-CN chrome/locale/zh-CN/
+locale usebccinsteadC cs chrome/locale/cs/
+locale usebccinsteadC pt-BR chrome/locale/pt-BR/
+locale usebccinsteadC it chrome/locale/it/
+locale usebccinsteadC sr chrome/locale/sr/
+locale usebccinsteadC de chrome/locale/de/
+locale usebccinsteadC fr chrome/locale/fr/
+locale usebccinsteadC es-ES chrome/locale/es-ES/
+overlay chrome://messenger/content/customizeToolbar.xul chrome://usebccinsteadC/content/CustomizeToolbarWindowOverlay.xul
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://usebccinsteadC/content/messageSendOverlay.xul
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://usebccinsteadC/content/composeWindowOverlay.xul
+overlay chrome://messenger/content/messenger.xul chrome://usebccinsteadC/content/extendedRecipientsColumnOverlay3.xul
