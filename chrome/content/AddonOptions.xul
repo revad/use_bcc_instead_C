@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
+
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/preferences/preferences.css"?>
 <?xml-stylesheet href="chrome://messenger/content/bindings.css" type="text/css"?>
+
+<?xml-stylesheet href="AddonOptions.css" type="text/css"?>
 
 <!DOCTYPE prefWindowOverlay [
   <!ENTITY % commonDTD SYSTEM "chrome://usebccinsteadC/locale/common.dtd">
@@ -12,10 +15,6 @@
 
 <prefwindow id="UseBccInsteadC.PrefsWindow"
      title="&prefwindow.title;"
-     buttons="cancel,extra2"
-     ondialogcancel="return UseBccInsteadC.UseBccInsteadCPrefs.validateCount()"
-     ondialogextra2="UseBccInsteadC.UseBccInsteadCPrefs.showHelpWindow()"
-     buttonlabelextra2="&showHelp.label;"
      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
   <script type="application/x-javascript" src="chrome://usebccinsteadC/content/namespace.js"/>
@@ -86,13 +85,6 @@
         </hbox>
       </groupbox>
 
-  <!-- Asterisk applied to enableChangeAll pref;
-       Removed - does not require restart in TB 64
-      <vbox align="center">
-        <label value="&restart.label;"/> -->
-  <!-- this addon has no website at this time. maybe later...
-        <label value="&website.label;" onclick="UseBccInsteadC.UseBccInsteadCPrefs.showWebsite()" style="color: #0000FF; text-decoration: underline; cursor: pointer;"/
-      </vbox> -->
     </vbox>
   </prefpane>
 </prefwindow>
