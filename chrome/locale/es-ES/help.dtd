@@ -3,8 +3,8 @@
 <!ENTITY helpText.summaryHeading "Resumen">
 <!ENTITY helpText.summaryText1 "¿Quién entre nosotros no ha cometido el error de enviar un mensaje a un gran número de destinatarios sin usar Bcc y revelando así las direcciones de correo a todo el mundo?">
 <!ENTITY helpText.summaryText2 "Esta sencilla extensión ofrece varias funcionalidades para prevenir que eso ocurra. Lo primero, comprueba cada correo al ser enviado para verificar si se debe tomar alguna acción correctiva para prevenir esta distracción.">
-<!ENTITY helpText.platformsHeading "PLATAFORMAS:">
-<!ENTITY helpText.platformsText "Yo personalmente he comprobado la versión 1.x de esta extensión en Windows XP Pro. Tengo todas las razones para pensar que esta extensión funcionará también en otras plataformas - por favor, hazme saber lo que encuentres.">
+
+
 <!ENTITY helpText.detailsHeading "DETALLES:">
 <!ENTITY helpText.sendingEmailHeading "Al enviar correos">
 <!ENTITY helpText.detailsText1 "Después de la instalación, esta extensión inspeccionará la lista de destinatarios de cada correo enviado. Antes de hacer efectivo el envío comprueba las direcciones de los destinatarios en Para y Cc. Si las hay, tomará las acciones correspondientes basándose en las opciones que hayas especificado.">
@@ -21,5 +21,5 @@
 <!ENTITY helpText.detailsText7 "Así que para Thunderbird versión 2 o superior, esta extensión proporciona una nueva columna en la lista de mensajes llamada 'Destinatario-Extendido' que intenta ser un reemplazo de la columna Destinatario por defecto. Una vez que se ha añadido al panel de visión para las carpetas Enviado y similares, esta columna mostrará los destinatarios: Para (excepto 'destinatarios-no-revelados:;') o Cc o Bcc.">
 <!ENTITY helpText.optionsHeading "OPCIONES:">
 <!ENTITY helpText.optionsText "Esta extensión ofrece una opción principal de configuración y dos opciones secundarias para controlar su comportamiento al enviar correos. Proporciona también dos opciones que controlan el comportamiento cuando se componen correos. La forma fácil de manipularlas es a través del panel de opciones interno. Para acceder ese panel, ir al menú Herramientas y seleccione Complementos. Aparecerá una lista de los complementos y, entre ellos, useBccInstead. Si no aparece, la instalación no ha sido satisfactoria. Si aparece, presione el botón Opciones. La mayoría de las opciones no necesitan reiniciar Thunderbird para su activación.">
-<!ENTITY helpText.notesHeading "NOTAS:">
-<!ENTITY helpText.notesText1 "Esta extensión es incompatible con la excelente Enviar Más Tarde (SendLater3) y puede ser incompatible con otras extensiones que se 'cuelgan' a la funcionalidad de envío de Thunderbird. De momento no hay solución disponible. Disculpe.">
+
+

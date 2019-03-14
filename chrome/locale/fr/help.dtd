@@ -3,8 +3,8 @@
 <!ENTITY helpText.summaryHeading "SOMMAIRE:">
 <!ENTITY helpText.summaryText1 "Qui parmi vous n'a jamais fait l'erreur d'envoyer un message à un grand nombre de destinataires sans utiliser le mode &quot;Copie Cachée à:&quot; ? Révélant ainsi à tous les destinataires l'adresse électronique de chacun!">
 <!ENTITY helpText.summaryText2 "Ce module complémentaire ou extension propose plusieurs fonctions destinées à éviter ce type de désagrément. Avant tout, ce module contrôle chaque message au moment de l'envoi, afin de déterminer si une action de sa part est nécessaire afin d'éviter ce type d'incident.">
-<!ENTITY helpText.platformsHeading "Pate-formes d'exploitation:">
-<!ENTITY helpText.platformsText "J'ai testé personnellement la version 1.x de l'extension uniquement sur Windows pro XP. J'ai de bonnes raisons de penser que cette extension fonctionne avec d'autres systèmes d'exploitation. SVP, faites moi part de vos observations.">
+
+
 <!ENTITY helpText.detailsHeading "DETAILS:">
 <!ENTITY helpText.sendingEmailHeading "Lors de l'envoi d'un messsage">
 <!ENTITY helpText.detailsText1 "Après installation, cette extesnion inspectera la liste des destinataires de chaque message. Avant l'envoi, il cherchera les destinataires en mode &quot;Pour:&quot; et &quot;Copie à:&quot;. Pour ceux-là, il modifiera si nécessaire le mode en fonction des options spécifiées par l'utilisateur dans le menu options du module complémentaire.">
@@ -21,5 +21,5 @@
 <!ENTITY helpText.detailsText7 "aussi, pour les versions de Thunderbird ultérieures aux versions 2.x, cette extension permet l'affichage d'une nouvelle colonne appelée &quot;destinataires-étendus&quot; à utiliser en remplacement de la colonne de destinataires standard. Une fois ajoutée au volet pour les messages et dossiers envoyés, cette colonne montre tous les destinataires quelque soit leur statut lors de l'envoi; &quot;Pour:&quot;, &quot;Copie à:&quot; ou &quot;Copie Cachée à:&quot;.">
 <!ENTITY helpText.optionsHeading "OPTIONS:">
 <!ENTITY helpText.optionsText "Cette extension est articulée en une configuration principale et deux secondaires pour planifier l'action du module lors de l'envoi d'un message. Elle propose également deux options de contrôle lors de la création d'un message. Ces options peuvent être facilement utilisées via la fenêtre Options du module complémentaire. Chemin d'accès: &quot;Outils&quot; - &quot;Modules Complémentaires&quot; - puis, dans la nouvelle fenêtre, la liste des extensions s'affiche: sélectionnez Options dans l'extension Bcc Instead. La plupart des options proposées ne nécessitent pas le redémarrage de Thunderbird.">
-<!ENTITY helpText.notesHeading "NOTES:">
-<!ENTITY helpText.notesText1 "Cette extension est connue pour être incompatible avec l'extension SendLater3 et doit être également incompatible avec d'autres fonctionnalités de Thunderbird. Aucune solution à ce problème n'est disponible pour le moment. Désolé.">
+
+

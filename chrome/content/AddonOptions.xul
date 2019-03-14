@@ -4,8 +4,6 @@
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/preferences/preferences.css"?>
 <?xml-stylesheet href="chrome://messenger/content/bindings.css" type="text/css"?>
 
-<?xml-stylesheet href="AddonOptions.css" type="text/css"?>
-
 <!DOCTYPE prefWindowOverlay [
   <!ENTITY % commonDTD SYSTEM "chrome://usebccinsteadC/locale/common.dtd">
   %commonDTD;
@@ -13,24 +11,17 @@
   %prefWindowDTD;
 ]>
 
-<prefwindow id="UseBccInsteadC.PrefsWindow"
+<dialog id="UseBccInsteadC.PrefsWindow" buttons="accept,extra1"
      title="&prefwindow.title;"
+     ondialogextra1="UseBccInsteadC.UseBccInsteadCPrefs.showHelpWindow()"
+     buttonlabelextra1="&showHelp.label;"
      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
   <script type="application/x-javascript" src="chrome://usebccinsteadC/content/namespace.js"/>
   <script type="application/x-javascript" src="chrome://usebccinsteadC/content/UseBccInsteadCUtil.js"/>
   <script type="application/x-javascript" src="chrome://usebccinsteadC/content/AddonOptions.js"/>
 
-  <prefpane id="settings_pane" label="&prefpane.label;">
-    <preferences>
-      <!-- preference id="forceBcc" name="extensions.usebccinsteadC.forceBcc" instantApply="true" type="bool"/ -->
-      <!-- preference id="maxCount" name="extensions.usebccinsteadC.nonBccCount" type="int"/ -->
-      <!-- preference id="defaultNewMsgMode" name="extensions.usebccinsteadC.defaultNewMsgMode" type="int"/ -->
-      <!-- preference id="play" name="extensions.usebccinsteadC.playSound" instantApply="true" type="bool"/ -->
-      <!-- preference id="force" name="extensions.usebccinsteadC.forceNoSend" instantApply="true" type="bool"/ -->
-      <!-- preference id="enableChangeAll" name="extensions.usebccinsteadC.enableChangeAll" instantApply="true" type="bool"/ -->
-      <!-- preference id="enableAddUndisclosedRecipients" name="mail.compose.add_undisclosed_recipients" instantApply="true" type="bool"/ -->
-    </preferences>
+  <dialogheader id="settings_pane" label="&prefpane.label;">
 
     <vbox>
       <groupbox id="sendingOptions">
@@ -86,5 +77,5 @@
       </groupbox>
 
     </vbox>
-  </prefpane>
-</prefwindow>
+  </dialogheader>
+</dialog>

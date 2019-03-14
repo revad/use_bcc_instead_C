@@ -3,8 +3,8 @@
 <!ENTITY helpText.summaryHeading "SOMMARIO:">
 <!ENTITY helpText.summaryText1 "Può capitare di inviare per errore un messaggio di posta elettronica ad un gran numero di destinatari non in CCN, rivelando così a ciascuno di essi l'indirizzo e-mail degli altri.">
 <!ENTITY helpText.summaryText2 "Con questa semplice estensione si è tentato di risolvere il problema. Ogni messaggio viene controllato in fase di invio; nel caso in cui tra i destinatari vi sia o una lista di distribuzione o un numero maggiore del massimo numero di destinatari diretti o in CC consentiti, verrà visualizzato un avviso oppure, a scelta, sarà impossibile inviare il messaggio.">
-<!ENTITY helpText.platformsHeading "PIATTAFORME:">
-<!ENTITY helpText.platformsText "L'estensione è stata testata solamente su Windows XP Professional. Dovrebbe funzionare senza problemi anche sulle altre piattaforme. In caso di problemi, è possibile contattare l'autore.">
+
+
 <!ENTITY helpText.detailsHeading "DETTAGLI:">
 <!ENTITY helpText.sendingEmailHeading "In fase di invio di un messaggio">
 <!ENTITY helpText.detailsText1 "Una volta installata l'estensione, tutti i messaggi in uscita verranno controllati enumerando i destinatari per confrontare quanti di essi siano presenti nei campi A e CC. Se questo numero è maggiore del valore indicato nelle opzioni dell'estensione o se tra i destinatari A e CC è presente una lista di distribuzione, verranno intraprese azioni specifiche per evitare l'esposizione involontaria degli indirizzi e-mail dei destinatari.">
@@ -21,5 +21,5 @@
 <!ENTITY helpText.detailsText7 "Per le versioni di Thunderbird superiori alla 2.x perciò si è provveduto perciò ad aggiungere una nuova colonna personalizzata chiamata 'Destinatario-Esteso' che può rimpiazzare quella standard. Una volta aggiunta, in questa colonna verranno mostrati i destinatari diretti (se non sono 'destinatari-ignoti:;') o i destinatari in CC o quelli in CCN.">
 <!ENTITY helpText.optionsHeading "OPZIONI:">
 <!ENTITY helpText.optionsText "L'estensione presenta un'opzione principale e due secondarie che controllano il comportamento in fase di invio dei messaggi. Presenta inoltre due opzioni che controllano il comportamento in fase di composizione dei messaggi. Per configurare le opzioni, fare clic sul menu 'Strumenti' e successivamente su 'Componenti aggiuntivi'. Dall'elenco dei componenti aggiuntivi, fare clic su 'Use BCC Instead' e successivamente sul tasto 'Opzioni' (o 'Preferenze'). La modifica di queste opzioni non richiede il riavvio di Thunderbird.">
-<!ENTITY helpText.notesHeading "NOTE:">
-<!ENTITY helpText.notesText1 "Questo componente risulta non compatibile con l'ottimo SendLater3 e potrebbe essere incompatibile con altri componenti aggiuntivi che interagiscono con l'invio dei messaggi in Thunderbird. Allo stato attuale delle cose questo problema non ha soluzione.">
+
+

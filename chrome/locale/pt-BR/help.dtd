@@ -3,8 +3,8 @@
 <!ENTITY helpText.summaryHeading "RESUMO:">
 <!ENTITY helpText.summaryText1 "Quem é que nunca cometeu o erro de enviar uma mensagem para um grande número de destinatários sem usar o &quot;Cco&quot;, revelando assim todos os endereços de e-mail?">
 <!ENTITY helpText.summaryText2 "Este complemento simples tenta evitar que isso ocorra. Ele analisa cada envio de mensagem para verificar se no &quot;Para&quot; ou no &quot;Cc&quot; há uma lista de e-mails ou uma quantidade de destinatários maior que o máximo configurado. Se houver, então um aviso é exibido ou o envio da mensagem é cancelado.">
-<!ENTITY helpText.platformsHeading "PLATAFORMAS:">
-<!ENTITY helpText.platformsText "Eu testei pessoalmente a versão 3.x deste complemento apenas no Windows XP Pro. Eu tenho todos os motivos para esperar que ele funcione em outras plataformas também. Por favor, me avise o que você descobrir.">
+
+
 <!ENTITY helpText.detailsHeading "DETALHES:">
 <!ENTITY helpText.sendingEmailHeading "Ao Enviar Mensagem">
 <!ENTITY helpText.detailsText1 "Após a instalação, este complemento vai analisar a lista de destinatários de cada mensagem enviada. Antes de permitir o envio, ele vai procurar destinatários que estejam no &quot;Para&quot; ou no &quot;Cc&quot;. Se encontrar, ele vai agir de acordo com as opções configuradas.">
@@ -21,5 +21,5 @@
 <!ENTITY helpText.detailsText7 "Então, para o Thunderbird 2.x ou posterior, este complemento oferece uma nova coluna para o painel de tópicos chamada &quot;Destinatário-Estendido&quot;, que pode ser usada no lugar da coluna padrão &quot;Destinatário&quot;. Ao ser adicionada no painel da pasta de e-mail enviados ou similar, esse nova coluna vai exibir o seguinte: os destinatários do &quot;Para&quot; (exceto o &quot;destinatarios-nao-revelados:;&quot;) ou os destinatários do &quot;Cc&quot; ou os destinatários do &quot;Cco&quot;.">
 <!ENTITY helpText.optionsHeading "OPÇÕES:">
 <!ENTITY helpText.optionsText "Este complemento oferece uma opção principal e duas adicionais que controlam seu funcionamento. Elas podem ser facilmente acionadas através da janela de configuração do complemento. Para acessar essa janela, vá ao menu Ferramentas e selecione &quot;Complementos&quot;. Você verá uma lista de extensões instaladas e o &quot;Use Bcc Instead&quot; deverá estar nessa lista. Se não estiver, a instalação não foi bem sucedida. Se estiver na lista, clique no botão &quot;Opções&quot;. Essas opções não exigem que o Thunderbird seja reiniciado para terem efeito.">
-<!ENTITY helpText.notesHeading "OBSERVAÇÕES:">
-<!ENTITY helpText.notesText1 "Este complemento é incompatível com o complemento SendLater3 e pode ser incompatível com outros complementos que interceptam a funcionalidade de envio do Thunderbird. Por enquanto, nenhuma solução conhecida está disponível. Desculpe.">
+
+

@@ -3,8 +3,8 @@
 <!ENTITY helpText.summaryHeading "SHRNUTÍ:">
 <!ENTITY helpText.summaryText1 "Kdo z nás někdy neposlal omylem hromadný e-mail mnoha lidem bez použití skryté kopie a tím neodhalil všechny e-mailové adresy všem?">
 <!ENTITY helpText.summaryText2 "Tento jednoduchý doplněk se tomu pokouší zabránit. Před odesláním každého e-mailu kontroluje, zda není potřeba provést nějakou úpravu, aby se tento malér nestal.">
-<!ENTITY helpText.platformsHeading "PLATFORMY:">
-<!ENTITY helpText.platformsText "Osobně jsem zkoušel tuto verzi doplňku jenom pod Windows XP Pro. Nemám důvod předpokládat, že na jiných platformách nebude doplněk fungovat – dejte mi prosím vědět, co zjistíte.">
+
+
 <!ENTITY helpText.detailsHeading "PODROBNOSTI:">
 <!ENTITY helpText.sendingEmailHeading "Při odesílání e-mailu">
 <!ENTITY helpText.detailsText1 "Nainstalovaný doplněk prozkoumá seznam příjemců u každého odesílaného e-mailu a hledá příjemce uvedené jako Komu nebo Kopie. Pokud takové nalezne, provede opatření zvolené uživatelem v nastavení.">
@@ -21,5 +21,5 @@
 <!ENTITY helpText.detailsText7 "Proto tento doplněk umožňuje od verze 2.x přidat do panelu s vlákny nový vlastní sloupec nazvaný &quot;Příjemce-Rozšířený&quot;, jehož účelem je nahradit standardní sloupec Příjemce. Pokud je přidán na panel pro složku Odeslaná pošta a podobné, bude zobrazovat  následující: příjemce Komu (pokud to nejsou &quot;utajeni adresati&quot;) NEBO příjemce uvedené jako Kopie NEBO Skrytá kopie.">
 <!ENTITY helpText.optionsHeading "MOŽNOSTI:">
 <!ENTITY helpText.optionsText "Chování doplňku je ovlivněno jednou hlavní a dvěma vedlejšími uživatelem nastavovanými možnostmi. Tyto možnosti lze jednoduše upravit v dialogovém okně, které se vyvolá v nabídce Nástroje volbou Správce doplňků. Objeví se seznam nainstalovaných doplňků, který by měl obsahovat „Použít skrytou kopii“. Není-li tomu tak, instalace doplňku se nezdařila. V opačném případě zvolte tlačítko Předvolby. Aby se změny nastavení uplatnily, není třeba Thunderbird restartovat.">
-<!ENTITY helpText.notesHeading "POZNÁMKY:">
-<!ENTITY helpText.notesText1 "Je známo, že tento doplněk není kompatibilní s velmi pěkným doplňkem SendLater3 a možná i s jinými doplňky, které se týkají odesílání e-mailů v Thunderbirdu. V současnosti neznáme řešení tohoto stavu, za což se omlouváme.">
+
+

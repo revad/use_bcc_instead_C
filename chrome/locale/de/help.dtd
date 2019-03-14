@@ -3,8 +3,8 @@
 <!ENTITY helpText.summaryHeading "ÜBERSICHT:">
 <!ENTITY helpText.summaryText1 "Wer hat nicht schon einmal den Fehler gemacht, eine Broadcast-Nachricht an eine große Anzahl von Empfängern ohne BCC zu senden? Dabei werden alle E-Mail-Adressen für jeden sichtbar.">
 <!ENTITY helpText.summaryText2 "Diese einfache Erweiterung bietet mehrere Funktionen, um genau das zu verhindern. Unter anderem prüft sie beim Senden jeder Nachricht die Empfänger-Liste und schreitet ein, falls nötig.">
-<!ENTITY helpText.platformsHeading "PLATTFORMEN:">
-<!ENTITY helpText.platformsText "Ich habe die Version 3.x dieser Erweiterung nur unter Windows XP Pro getestet. Allerdings habe ich allen Grund anzunehmen, dass sie auf anderen Plattformen ebenfalls funktioniert - bitte teilen Sie mir Ihre Erfahrungen mit.">
+
+
 <!ENTITY helpText.detailsHeading "DETAILS:">
 <!ENTITY helpText.sendingEmailHeading "Beim Senden einer Nachricht">
 <!ENTITY helpText.detailsText1 "Beim Senden einer Nachricht prüft die Erweiterung die Liste der Empfänger. Sind darunter An- oder CC-Empfänger, ergreift sie vor dem eigentlichen Versenden Maßnahmen, die der Benutzer in den Einstellungen festgelegt hat.">
@@ -21,5 +21,5 @@
 <!ENTITY helpText.detailsText7 "Für Thunderbird ab Version 2.x bietet diese Erweiterung eine neue benutzerdefinierte Spalte für die Nachrichten-/Themenliste namens &quot;Empfänger-Erweitert&quot; an, die als Ersatz für die Standard-Spalte &quot;Empfänger&quot; verwendet werden soll. Sie zeigt die An-Empfänger (außer &quot;Verborgene_Empfaenger: ;&quot;), CC-Empfänger und BCC-Empfänger.">
 <!ENTITY helpText.optionsHeading "EINSTELLUNGEN:">
 <!ENTITY helpText.optionsText "Die Option &quot;Aktiviere Funktion, um alle Empfänger auf An, CC oder BCC umzustellen&quot; erfordert einen Neustart von Thunderbird, bevor sie greift. Alle anderen Einstellungen werden augenblicklich übernommen.">
-<!ENTITY helpText.notesHeading "HINWEISE:">
-<!ENTITY helpText.notesText1 "Diese Erweiterung ist nicht kompatibel mit der sehr guten Erweiterung &quot;SendLater3&quot;. Eventuell ist sie auch inkompatibel mit anderen Erweiterungen, die in die Senden-Funktionalität von Thunderbird eingreifen. Momentan ist hierfür leider keine Lösung bekannt.">
+
+

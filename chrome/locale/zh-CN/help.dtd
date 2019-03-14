@@ -3,8 +3,8 @@
 <!ENTITY helpText.summaryHeading "概述：">
 <!ENTITY helpText.summaryText1 "你有发送“广播”电子邮件给很多人时忘记使用密送，从而泄露了每个人的电子邮箱地址的经历吗？">
 <!ENTITY helpText.summaryText2 "这个简单的附加组件试图防止这种情况。它会在发送时检查每封电子邮件，看看它是否发送给非密送的邮件列表，或是没有使用密送的收件人数量超过用户配置的数量。如果发生这种情况，可以警告用户或是阻止发送该电子邮件。">
-<!ENTITY helpText.platformsHeading "平台：">
-<!ENTITY helpText.platformsText "我亲自在 Windows XP 专业版上测试了本附加组件的这个版本。我有理由相信本附加组件能在其他平台上正常工作。如有意外——请让我知道你的发现。">
+
+
 <!ENTITY helpText.detailsHeading "详细信息：">
 <!ENTITY helpText.sendingEmailHeading "当发送电子邮件时">
 <!ENTITY helpText.detailsText1 "安装完毕后，本附加组件将在每封电子邮件发送前检查收件人列表。它会计算收件人的数量看看有多少没有被密送。如果该数值超过用户在本附加组件的选项面板中的设置，或是任何一个收件人是非密送的邮件列表，本附加组件将采取行动以防止收件人的电子邮箱地址被意外披露。">
@@ -21,5 +21,5 @@
 <!ENTITY helpText.detailsText7 "因此在 Thunderbird 2.x 以上的版本，本附加组件在话题面板提供了一个新的定制列，它被称为“Recipients-Extended”（增强版接收者），它代替了标准的收件人列。只要添加到发件箱或者类似的文件夹，这个列就会显示：TO接收者（除非是“undisclosed-recipients:;”）或CC抄送或BCC密送接收者。">
 <!ENTITY helpText.optionsHeading "选项：">
 <!ENTITY helpText.optionsText "本附加组件提供两个供用户配置的选项控制其行为。这可以很容易的通过内置的附加组件选项对话框操作。要访问这个对话框，到工具菜单并选择“附加组件”。您将看到已安装附加组件的列表，然后在该列表中选择“Use Bcc Instead”（如果没有，表明安装没有成功）。然后只需按下选项按钮。这些选项不需要重新启动 Thunderbird 即可生效。">
-<!ENTITY helpText.notesHeading "注意：">
-<!ENTITY helpText.notesText1 "本附加组件非常精细，已知与附加组件 SendLater3 不兼容，此外还可能与其他的对 Thunderbird 发送功能“Hook”的附加组件不兼容。在这点上，没有已知的解决方法可用。抱歉。">
+
+
