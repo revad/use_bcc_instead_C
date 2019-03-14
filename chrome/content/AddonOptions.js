@@ -2,33 +2,37 @@ UseBccInsteadC.UseBccInsteadCPrefs =
 {
   inEditCount: false,
 
-  showMozillazine: function()
-  {
-    var uri = Components.classes["@mozilla.org/network/standard-url;1"].createInstance(Components.interfaces.nsIURI);
-    uri.spec = "http://kb.mozillazine.org/BCC";
-    var protocolSvc = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"].getService(Components.interfaces.nsIExternalProtocolService);
-    protocolSvc.loadUrl(uri);
-    protocolSvc = null;
-    uri = null;
-  },
-
   onLoad: function()
   {
     // remove to avoid duplicate initialization
     removeEventListener("load", UseBccInsteadC.UseBccInsteadCPrefs.onLoad, true);
-
+  
     var widget = document.getElementById("maxCount");
     widget.value = UseBccInsteadC.UseBccInsteadCUtil.getIntPref("extensions.usebccinsteadC.nonBccCount", 10);
 
     widget = document.getElementById("defaultNewMsgMode");
     widget.selectedIndex = UseBccInsteadC.UseBccInsteadCUtil.getIntPref("extensions.usebccinsteadC.defaultNewMsgMode", -1) + 1;
 
+    // DR: Prefs no longer set automatically in xul prefpane
     widget = document.getElementById("forceBccCheckbox");
+    widget.checked = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("extensions.usebccinsteadC.forceBcc");
     widget.focus();
 
-    var thisDialog = document.getElementById("UseBccInsteadC.PrefsWindow");
-    widget = thisDialog.getButton("cancel");
-    widget.label = UseBccInsteadC.UseBccInsteadCUtil.getLocalizedString("closeButton.label");
+    widget = document.getElementById("force");
+    widget.checked = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("extensions.usebccinsteadC.forceNoSend");
+
+    widget = document.getElementById("play");
+    widget.checked = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("extensions.usebccinsteadC.playSound");
+
+    widget = document.getElementById("enableChangeAllRecipients");
+    widget.checked = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("extensions.usebccinsteadC.enableChangeAll");
+
+    widget = document.getElementById("addUndisclosedRecipients");
+    widget.checked = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("mail.compose.add_undisclosed_recipients");
+    
+    // DR: Because xul prefpane > onpaneload does not work now
+    UseBccInsteadC.UseBccInsteadCPrefs.toggle(true)    
+
   },
 
   validateCount: function()
@@ -68,12 +72,16 @@ UseBccInsteadC.UseBccInsteadCPrefs =
   },
 
   toggle: function(onInit)
+  //DR: Included the other labels
+  //DR: Don't know why this was ever called with init=false before  
   {
-    var checked = document.getElementById("forceBcc").value;
+    var checked = document.getElementById("forceBccCheckbox").checked;
     var maxCountLabel = document.getElementById("maxCountLabel");
     var maxCount = document.getElementById("maxCount");
     var force = document.getElementById("force");
+    var forceLabel = document.getElementById("forceLabel");
     var play = document.getElementById("play");
+    var playLabel = document.getElementById("playLabel");    
 
     // seems we are called before the value is actually changed except on initial display
     if(!checked)
@@ -81,25 +89,28 @@ UseBccInsteadC.UseBccInsteadCPrefs =
       (onInit) ? maxCountLabel.disabled = false : maxCountLabel.disabled = true;
       (onInit) ? maxCount.disabled = false : maxCount.disabled = true;
       (onInit) ? force.disabled = false : force.disabled = true;
+      (onInit) ? forceLabel.disabled = false : forceLabel.disabled = true;      
       (onInit) ? play.disabled = false : play.disabled = true;
+      (onInit) ? playLabel.disabled = false : playLabel.disabled = true;      
     }
     else
     {
       (onInit) ? maxCountLabel.disabled = true : maxCountLabel.disabled = false;
       (onInit) ? maxCount.disabled = true : maxCount.disabled = false;
       (onInit) ? force.disabled = true : force.disabled = false;
+      (onInit) ? forceLabel.disabled = true : forceLabel.disabled = false;      
       (onInit) ? play.disabled = true : play.disabled = false;
+      (onInit) ? playLabel.disabled = true : playLabel.disabled = false;     
     }
   },
-
-  showWebsite: function()
+  
+  //DR: New fn to replace automatic storing of preference checkboxes  
+  setCheckboxPref: function(pref, state)
   {
-    var uri = Components.classes["@mozilla.org/network/standard-url;1"].createInstance(Components.interfaces.nsIURI);
-    uri.spec = "http://usebccinsteadC.mozdev.org";
-    var protocolSvc = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"].getService(Components.interfaces.nsIExternalProtocolService);
-    protocolSvc.loadUrl(uri);
-    protocolSvc = null;
-    uri = null;
+    UseBccInsteadC.UseBccInsteadCUtil.setBoolPref(pref, state);
+    if (pref == "extensions.usebccinsteadC.forceBcc") {
+      UseBccInsteadC.UseBccInsteadCPrefs.toggle(true)
+    }  
   },
 
   showHelpWindow: function()

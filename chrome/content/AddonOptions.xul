@@ -21,15 +21,15 @@
   <script type="application/x-javascript" src="chrome://usebccinsteadC/content/UseBccInsteadCUtil.js"/>
   <script type="application/x-javascript" src="chrome://usebccinsteadC/content/AddonOptions.js"/>
 
-  <prefpane id="settings_pane" label="&prefpane.label;" onpaneload="UseBccInsteadC.UseBccInsteadCPrefs.toggle(true)">
+  <prefpane id="settings_pane" label="&prefpane.label;">
     <preferences>
-      <preference id="forceBcc" name="extensions.usebccinsteadC.forceBcc" instantApply="true" type="bool"/>
+      <!-- preference id="forceBcc" name="extensions.usebccinsteadC.forceBcc" instantApply="true" type="bool"/ -->
       <!-- preference id="maxCount" name="extensions.usebccinsteadC.nonBccCount" type="int"/ -->
       <!-- preference id="defaultNewMsgMode" name="extensions.usebccinsteadC.defaultNewMsgMode" type="int"/ -->
-      <preference id="play" name="extensions.usebccinsteadC.playSound" instantApply="true" type="bool"/>
-      <preference id="force" name="extensions.usebccinsteadC.forceNoSend" instantApply="true" type="bool"/>
-      <preference id="enableChangeAll" name="extensions.usebccinsteadC.enableChangeAll" instantApply="true" type="bool"/>
-      <preference id="enableAddUndisclosedRecipients" name="mail.compose.add_undisclosed_recipients" instantApply="true" type="bool"/>
+      <!-- preference id="play" name="extensions.usebccinsteadC.playSound" instantApply="true" type="bool"/ -->
+      <!-- preference id="force" name="extensions.usebccinsteadC.forceNoSend" instantApply="true" type="bool"/ -->
+      <!-- preference id="enableChangeAll" name="extensions.usebccinsteadC.enableChangeAll" instantApply="true" type="bool"/ -->
+      <!-- preference id="enableAddUndisclosedRecipients" name="mail.compose.add_undisclosed_recipients" instantApply="true" type="bool"/ -->
     </preferences>
 
     <vbox>
@@ -37,7 +37,7 @@
         <caption>&sendingEmail.label;</caption>
         <hbox align="center">
           <label control="forceBccCheckbox" value="&forceBcc.label;"/>
-          <checkbox id="forceBccCheckbox" preference="forceBcc" oncommand="UseBccInsteadC.UseBccInsteadCPrefs.toggle(false)"/>
+          <checkbox id="forceBccCheckbox" oncommand="UseBccInsteadC.UseBccInsteadCPrefs.setCheckboxPref('extensions.usebccinsteadC.forceBcc',checked)"/>
         </hbox>
         <groupbox>
           <hbox align="center">
@@ -46,13 +46,13 @@
           </hbox>
 
           <hbox align="center">
-            <label control="force" value="&force.label;"/>
-            <checkbox id="force" preference="force"/>
+            <label id="forceLabel" control="force" value="&force.label;"/>
+            <checkbox id="force" oncommand="UseBccInsteadC.UseBccInsteadCPrefs.setCheckboxPref('extensions.usebccinsteadC.forceNoSend',checked)"/>
           </hbox>
 
           <hbox align="center">
-            <label control="play" value="&play.label;"/>
-            <checkbox id="play" preference="play"/>
+            <label id="playLabel" control="play" value="&play.label;"/>
+            <checkbox id="play" oncommand="UseBccInsteadC.UseBccInsteadCPrefs.setCheckboxPref('extensions.usebccinsteadC.playSound',checked)"/>
           </hbox>
         </groupbox>
       </groupbox>
@@ -73,7 +73,7 @@
 
         <hbox align="center">
           <label control="enableChangeAllRecipients" value="&enableChangeAllRecipients.label;"/>
-          <checkbox id="enableChangeAllRecipients" preference="enableChangeAll"/>
+          <checkbox id="enableChangeAllRecipients" oncommand="UseBccInsteadC.UseBccInsteadCPrefs.setCheckboxPref('extensions.usebccinsteadC.enableChangeAll',checked)"/>
         </hbox>
       </groupbox>
 
@@ -81,7 +81,7 @@
         <caption>&otherOptions.label;</caption>
         <hbox align="center">
           <label control="addUndisclosedRecipients" value="&addUndisclosedRecipients.label;"/>
-          <checkbox id="addUndisclosedRecipients" preference="enableAddUndisclosedRecipients"/>
+          <checkbox id="addUndisclosedRecipients" oncommand="UseBccInsteadC.UseBccInsteadCPrefs.setCheckboxPref('mail.compose.add_undisclosed_recipients',checked)"/>
         </hbox>
       </groupbox>
 
