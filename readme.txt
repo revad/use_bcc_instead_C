@@ -21,15 +21,9 @@ of the addon, and its use, from addons.thunderbird.net; Refer to the original ve
 INSTALLATION
 ------------
 
-1 You need TB 64+
-2 If you have either the original addon or my version for TB 60, remove it.
-3 In https://github.com/revad/use_bcc_instead_C
-    Download a ZIP (Green 'Clone or download' button)
-4 Extract the downloaded zip file
-5 Enter the use_bcc_instead_C-master directory
-6 Select all in that directory and create a zip file
-7 Open the thunderbird > Addons > Extensions page
-8 Drag the zip file onto that page
-9 Check version is 3.5.1
+Install from addons.thunderbird.net
+https://addons.thunderbird.net/en-US/thunderbird/addon/use-bcc-instead-c/
+
+You can replace 'en-US' with your locale: fr, de, etc
 
 Please raise issues here.
