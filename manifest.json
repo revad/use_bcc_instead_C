@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Use BCC Instead C",
   "description": "Replace many TO and CC recipients with BCC",
-  "version": "3.5.2",
+  "version": "3.5.3",
   "author": "DaveRo",
   "legacy": {    
       "options" : {

@@ -31,8 +31,14 @@ UseBccInsteadC.UseBccInsteadCPrefs =
     widget.checked = UseBccInsteadC.UseBccInsteadCUtil.getBoolPref("mail.compose.add_undisclosed_recipients");
     
     // DR: Because xul prefpane > onpaneload does not work now
-    UseBccInsteadC.UseBccInsteadCPrefs.toggle(true)    
-
+    UseBccInsteadC.UseBccInsteadCPrefs.toggle(true) 
+    
+    // DR: ondialog removed in TB68 so add listener here:    
+    document.addEventListener("dialogextra1", function(event) {
+      UseBccInsteadC.UseBccInsteadCPrefs.showHelpWindow(), 
+      event.preventDefault(); // Prevent the dialog closing.
+    });
+    
   },
 
   validateCount: function()

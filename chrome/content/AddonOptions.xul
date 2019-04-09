@@ -13,7 +13,6 @@
 
 <dialog id="UseBccInsteadC.PrefsWindow" buttons="accept,extra1"
      title="&prefwindow.title;"
-     ondialogextra1="UseBccInsteadC.UseBccInsteadCPrefs.showHelpWindow()"
      buttonlabelextra1="&showHelp.label;"
      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
