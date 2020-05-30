@@ -11,6 +11,9 @@ It works with TB 64+
 (use_bcc_instead_A worked with TB 60.
  use_bcc_instead_B worked with TB 63.)
 
+This will not be updated for TB 78. Try this addon:
+https://addons.thunderbird.net/en-US/thunderbird/addon/limit-non-bcc-recipients/
+
 ADDON ID
 --------
 
